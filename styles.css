@@ -1,11 +1,28 @@
 #grid {
     display: grid;
     grid-template-columns: repeat(16, auto);
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     border: solid black 3px;
 }
 
 .cell {
     padding-bottom: 100%;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 16px;
+}
+
+#options-container {
+    margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#colour-picker-text {
+    margin-bottom: 0;
 }

@@ -2,6 +2,7 @@ let container = document.getElementById('grid');
 
 let n = 16;
 let toggle = false;
+let colour = document.querySelector('input');
 
 function start() {
     for (let i = 0; i < n; i++) {
@@ -11,7 +12,6 @@ function start() {
             cell.style.height = 'auto';
             cell.classList.add('cell');
             container.appendChild(cell);
-            //cell.style.border = 'solid black 0.5px';
 
             cell.addEventListener('mousedown', function () {
                 toggle = true;
@@ -23,7 +23,7 @@ function start() {
 
             cell.addEventListener('mouseover', function () {
                 if (toggle === true) {
-                    cell.style.backgroundColor = 'red';
+                    cell.style.backgroundColor = colour.value;
                 }
             });
         }
