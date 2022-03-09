@@ -14,8 +14,22 @@
     <div id="main-container">
         <div id="options-container">
             <button id="clear">Clear</button>
+
+            <div id="modes">
+                <p>Choose a drawing mode:</p>
+                <input type="radio" id="eraser" name="drawing-modes">
+                <label for="eraser">Eraser</label>
+                <input type="radio" id="colour" name="drawing-modes">
+                <label for="colour">Colour</label>
+                <input type="radio" id="rainbow" name="drawing-modes">
+                <label for="rainbow">Rainbow</label>
+            </div>
+
             <p id="colour-picker-text">Pick a colour:</p>
-            <input type="color">
+            <input type="color" id="colour-picker">
+
+            <p id="grid-size">Grid Size: 16 x 16</p>
+            <input type="range" min="1" max="64" id="grid-size-selector">
         </div>
         <div id="grid" ondragstart="return false"></div>
     </div>

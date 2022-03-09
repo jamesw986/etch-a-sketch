@@ -1,13 +1,10 @@
 #grid {
     display: grid;
-    grid-template-columns: repeat(16, auto);
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
     width: 500px;
     height: 500px;
     border: solid black 3px;
-}
-
-.cell {
-    padding-bottom: 100%;
 }
 
 #main-container {
@@ -17,12 +14,16 @@
 }
 
 #options-container {
-    margin-right: 16px;
+    margin-right: 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
 #colour-picker-text {
-    margin-bottom: 0;
+    margin-bottom: -10px;
+}
+
+#grid-size {
+    margin-bottom: -10px;
 }

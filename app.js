@@ -1,17 +1,22 @@
-let container = document.getElementById('grid');
-
-let n = 16;
+let grid = document.getElementById('grid');
 let toggle = false;
-let colour = document.querySelector('input');
+let n = 16;
+let colourMode = document.getElementById('colour');
+let eraserMode = document.getElementById('eraser');
+let rainbowMode = document.getElementById('rainbow');
+let colour = document.getElementById('colour-picker');
+let gridSizeSelector = document.getElementById('grid-size-selector');
+let gridSizeDisplay = document.getElementById('grid-size');
 
 function start() {
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
+            // Create cell
             let cell = document.createElement('div');
-            cell.style.width = 'auto';
-            cell.style.height = 'auto';
+            cell.style.width = '100%';
+            cell.style.height = '100%';
             cell.classList.add('cell');
-            container.appendChild(cell);
+            grid.appendChild(cell);
 
             cell.addEventListener('mousedown', function () {
                 toggle = true;
@@ -23,35 +28,44 @@ function start() {
 
             cell.addEventListener('mouseover', function () {
                 if (toggle === true) {
-                    cell.style.backgroundColor = colour.value;
+                    // TODO rainbow button
+                    if (colourMode.checked) {
+                        cell.style.backgroundColor = colour.value;
+                    }
+                    if (eraserMode.checked) {
+                        cell.style.backgroundColor = 'white';
+                    }
+                    if (rainbowMode.checked) {
+                        let colourR = Math.floor(Math.random() * 256);
+                        let colourG = Math.floor(Math.random() * 256);
+                        let colourB = Math.floor(Math.random() * 256);
+                        cell.style.backgroundColor = `rgb(${colourR}, ${colourG}, ${colourB})`;
+                    }
                 }
             });
         }
     }
 }
 
-let clear = document.getElementById('clear');
-
-clear.addEventListener('click', function () {
+function clearGrid() {
     let cells = document.querySelectorAll('.cell');
     cells.forEach(cell => {
-        cell.style.backgroundColor = 'white';
-    })
+    cell.style.backgroundColor = 'white';
+    });
+}
 
-    // Prompt for grid size
-    let gridSize = window.prompt("New grid size?");
-    try {
-        if (gridSize <= 100) {
-            n = gridSize;
-            let grid = document.getElementById('grid');
-            grid.style.gridTemplateColumns = `repeat(${n}, auto)`;
-            start();
-        }
-    }
-    catch
-    {
-        window.alert('Input too high');
-    }
+let clear = document.getElementById('clear');
+clear.addEventListener('click', clearGrid);
+
+// Set new grid size based on slider value
+gridSizeSelector.addEventListener('input', function() {
+    clearGrid();
+    n = gridSizeSelector.value;
+    grid.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${n}, 1fr)`;
+    gridSizeDisplay.innerHTML = `Grid Size: ${n} x ${n}`;
+    start();
 });
+
 
 start();
