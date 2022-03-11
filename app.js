@@ -5,8 +5,21 @@ let colourMode = document.getElementById('colour');
 let eraserMode = document.getElementById('eraser');
 let rainbowMode = document.getElementById('rainbow');
 let colour = document.getElementById('colour-picker');
+let colourContainer = document.getElementById('colour-picker-container');
 let gridSizeSelector = document.getElementById('grid-size-selector');
 let gridSizeDisplay = document.getElementById('grid-size');
+
+function toggleColourPicker() {
+    if (colourMode.checked) {
+        colourContainer.style.display = '';
+    }
+    else if (eraserMode.checked) {
+        colourContainer.style.display = 'none';
+    }
+    else if (rainbowMode.checked) {
+        colourContainer.style.display = 'none';
+    }
+}
 
 function start() {
     for (let i = 0; i < n; i++) {
@@ -28,8 +41,8 @@ function start() {
 
             cell.addEventListener('mouseover', function () {
                 if (toggle === true) {
-                    // TODO rainbow button
                     if (colourMode.checked) {
+                        // TODO hide/unhide colour picker
                         cell.style.backgroundColor = colour.value;
                     }
                     if (eraserMode.checked) {
@@ -66,6 +79,5 @@ gridSizeSelector.addEventListener('input', function() {
     gridSizeDisplay.innerHTML = `Grid Size: ${n} x ${n}`;
     start();
 });
-
 
 start();
