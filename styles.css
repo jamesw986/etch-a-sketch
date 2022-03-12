@@ -1,5 +1,10 @@
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Hubballi', cursive;
+}
+
+h1 {
+    font-size: 43px;
+    font-weight: bold;
 }
 
 #grid {
@@ -9,19 +14,21 @@ body {
     width: 500px;
     height: 500px;
     border: solid black 3px;
+    margin-left: 113.7px;
 }
 
 #main-container {
     display: flex;
     flex-direction: row;
-    margin-left: 16px;
 }
 
 #options-container {
-    margin-right: 24px;
+    margin-left: 48px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    height: 506px;
+    width: 251.81px;
 }
 
 #colour-picker-text {
@@ -86,3 +93,26 @@ body {
 #clear:active {
   opacity: .5;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+  }
+  
+  .fa-github {
+    color: var(--primary-dark);
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+  }

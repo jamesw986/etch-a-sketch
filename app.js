@@ -100,7 +100,7 @@ function start() {
                         cell.style.backgroundColor = shade(cell.style.backgroundColor, shaderModeIncrement.value);
                     }
                     if (brightenMode.checked) {
-                        cell.style.backgroundColor = shade(cell.style.backgroundColor, -shaderModeIncrement.value);
+                        cell.style.backgroundColor = shade(cell.style.backgroundColor, -brightenModeIncrement.value);
                     }
                 }
             });
