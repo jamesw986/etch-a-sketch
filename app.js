@@ -45,21 +45,16 @@ function toggleColourPicker() {
 
 function shade(colour, increment) {
     let oldColour = colour;
-    console.log(`oldColour = ${oldColour}`);
-
     let nums = oldColour.slice(4, oldColour.length - 1);
-    console.log(`nums = ${nums}`);
 
     let numsArr = nums.split(',').map(function(item) {
         return parseInt(item, 10);
     });
-    console.log(`numsArr = ${numsArr}`);
 
     let newArr = [];
     for (let i = 0; i < numsArr.length; i++) {
         newArr[i] = numsArr[i] - increment;
     }
-    console.log(`newArr = ${newArr}`);
     return `rgb(${newArr[0]}, ${newArr[1]}, ${newArr[2]})`;
 }
 

@@ -1,5 +1,6 @@
 body {
     font-family: 'Hubballi', cursive;
+    margin-top: 36px;
 }
 
 h1 {
@@ -11,8 +12,8 @@ h1 {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-    width: 500px;
-    height: 500px;
+    min-width: 500px;
+    min-height: 500px;
     border: solid black 3px;
     margin-left: 113.7px;
 }
@@ -20,15 +21,13 @@ h1 {
 #main-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 #options-container {
-    margin-left: 48px;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    height: 506px;
-    width: 251.81px;
 }
 
 #colour-picker-text {
@@ -53,8 +52,9 @@ h1 {
     display: none;
 }
 
-#shader-increment {
+#shader-increment, #brighten-increment {
     resize: none;
+    width: 48px;
 }
 
 #clear {
